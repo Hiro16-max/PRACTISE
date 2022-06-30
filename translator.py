@@ -19,6 +19,6 @@ def get_lexeme(line):
     ret = []
     for i in line:
         if i in table:
-            ret.append(({i}, {table[i].lower()}))
+            ret.append((i, table[i].lower()))
         else: return print("цепочка не верна")
     return ret

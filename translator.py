@@ -9,7 +9,7 @@ def get_trans_table() -> dict:
     table['('] = 'лев_скобка'
     table[')'] = 'прав_скобка'
     table['['] = 'лев_кв_скобка'
-    table[']'] = 'прав_кв_скобка'
+    table[']'] = 'прав_кв_скобка'   
     table[':'] = 'двоеточие'
     return table
 
@@ -20,5 +20,8 @@ def get_lexeme(line):
     for i in line:
         if i in table:
             ret.append((i, table[i].lower()))
-        else: return print("цепочка не верна")
+        else:
+            with open('output.txt', 'w') as file:
+                file.write("REJECT")
+            exit()
     return ret

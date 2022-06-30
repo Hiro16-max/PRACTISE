@@ -1,9 +1,19 @@
 from translator import get_lexeme
 from lexer import get_words
-line = ("repeat myvar:=-123 until func(id);")
+from parser import parse
 
-tokens = get_lexeme(line)
-print(tokens)
-tokens2 = get_words(tokens)
-print(tokens2)
 
+
+
+if __name__ == "__main__":
+    with open('input.txt', 'r') as file:
+        line = file.readline()
+
+    lexeme = get_lexeme(line)
+
+    words = get_words(lexeme)
+
+    parse(words)
+    
+    with open('output.txt', 'w') as file:
+                file.write("ACCEPT")

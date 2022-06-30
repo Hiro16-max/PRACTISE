@@ -16,4 +16,9 @@ def get_trans_table() -> dict:
 table = get_trans_table()
 
 def get_lexeme(line):
-    return [(i, table[i]) for i in line]
+    ret = []
+    for i in line:
+        if i in table:
+            ret.append(({i}, {table[i].lower()}))
+        else: return print("цепочка не верна")
+    return ret

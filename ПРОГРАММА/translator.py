@@ -21,7 +21,7 @@ def get_lexeme(line) -> list:
     ret = []
     for i in line:
         if i in table:
-            ret.append((i, table[i].lower()))
+            ret.append([i, table[i].lower()])
         else:
-            ret.append((i, 'ошибка'))
+            ret.append([i, 'ошибка'])
     return ret

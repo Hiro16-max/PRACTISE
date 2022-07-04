@@ -8,13 +8,11 @@ def get_keyword(lexemes):
                 'to', 'true', 'type', 'unit', 'until', 'uses', 'var', 'while', 'with', 'xor']
 
     for id, pair in enumerate(lexemes):
-        if pair[1] == 'индентификатор':
-            if pair[0].lower() in keywords:
-                if pair[0].lower() == 'repeat':
-                    lexemes[id] = (pair[0], 'клслово_repeat')
-                elif pair[0].lower() == 'until':
-                    lexemes[id] = (pair[0], 'клслово_until')
+        if pair[1] == 'индентификатор' and pair[0].lower() in keywords:
+            if pair[0].lower() == 'repeat':
+                lexemes[id] = [pair[0], 'клслово_repeat']
+            elif pair[0].lower() == 'until':
+                lexemes[id] = [pair[0], 'клслово_until']
             else:
-                lexemes[id] = (pair[0], 'не_клслово')
-
+                lexemes[id] = [pair[0], 'другое_клслово']
     return lexemes
